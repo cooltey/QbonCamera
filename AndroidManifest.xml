@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cooltey.qboncamera"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name='android.permission.ACCESS_WIFI_STATE' /> 
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+	<!-- The following two permissions are not required to use
+	     Google Maps Android API v2, but are recommended. -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-feature android:name="android.hardware.camera" />                
+ 	<uses-feature android:name="android.hardware.camera.autofocus" />
+	<permission android:name="com.cooltey.qboncamera.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+	<uses-permission android:name="com.cooltey.qboncamera.permission.C2D_MESSAGE" />
+    <permission android:name="com.cooltey.qboncamera.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
+	<uses-permission android:name="com.cooltey.qboncamera.permission.MAPS_RECEIVE" />
+ 	
+	
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.cooltey.qboncamera.StartActivity"
+			android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cooltey.qboncamera.MainActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation"
+			android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.cooltey.qboncamera.QbonListActivity"
+            android:label="@string/qbon_list_title"
+            android:configChanges="orientation"
+			android:screenOrientation="portrait">
+        </activity>
+        
+        <activity
+            android:name="com.cooltey.qboncamera.QbonLoginActivity"
+            android:label="@string/login_title"
+            android:configChanges="orientation"
+			android:screenOrientation="portrait">
+        </activity>
+        
+        <activity
+            android:name="com.cooltey.qboncamera.QRCodeScannerActivity"
+            android:label="@string/qrcode_title"
+            android:configChanges="orientation"
+			android:screenOrientation="portrait">
+        </activity>
+        
+        <!-- Google Map -->
+        <meta-data
+		    android:name="com.google.android.gms.version"
+		    android:value="@integer/google_play_services_version" />
+        <meta-data
+		    android:name="com.google.android.maps.v2.API_KEY"
+		    android:value="@string/map_api_key"/>
+        
+        <!-- Facebook -->
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
+        <activity android:name="com.facebook.LoginActivity"/>
+        
+        <!-- 宣告Qbon的Activity -->
+        <activity android:name="com.hiiir.qbonsdk.QbonActivity"/>
+        <receiver android:name="com.hiiir.qbonsdk.gcm.C2DMReceiver"
+			android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+				<category android:name="com.cooltey.qboncamera" />
+			</intent-filter>
+		</receiver>
+        
+    </application>
+
+</manifest>

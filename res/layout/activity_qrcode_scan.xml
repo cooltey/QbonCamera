@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <FrameLayout
+    android:id="@+id/cameraPreview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  />
+
+ <ImageView
+     android:layout_width="188dp"
+     android:layout_height="188dp"
+     android:layout_gravity="center"
+     android:layout_marginBottom="30dp"
+     android:src="@drawable/camera_focus" />
+ 
+  <LinearLayout
+      android:id="@+id/scanControlZone"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom"
+      android:background="#f4274b"
+      android:orientation="vertical"
+      android:padding="15dp" >
+
+      <TextView
+          android:id="@+id/scanText"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/qrcode_scanning"
+          android:textColor="#FFFFFF"
+          android:textSize="30sp" />
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" >
+
+          <Button
+              android:id="@+id/saveButton"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentRight="true"
+              android:layout_alignParentTop="true"
+              android:text="@string/qrcode_save_btn" />
+
+          <Button
+              android:id="@+id/scanButton"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentTop="true"
+              android:text="@string/qrcode_rescan_btn" />
+      </RelativeLayout>
+  </LinearLayout>
+
+</FrameLayout>
